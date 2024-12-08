@@ -1,35 +1,127 @@
 package com.terminalroot.game;
 
-import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.ScreenUtils;
 
-public class Jogo extends ApplicationAdapter {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Jogo extends Game {
     private SpriteBatch batch;
-    private Texture image, dino;
+    private Texture background;
+    private Sprite dinoSprite;
+    private List<InteractiveObject> objects;
+
+    private float dinoX, dinoY;
+    private boolean facingRight = true;
+
+    private float speed = 200f;
 
     @Override
     public void create() {
         batch = new SpriteBatch();
-        image = new Texture("fundojogo1.png");
-        dino = new Texture("dino1.png");
+        background = new Texture("fundojogo1.png");
+
+        Texture dinoTexture = new Texture("dino1.png");
+        dinoSprite = new Sprite(dinoTexture);
+        dinoSprite.setSize(dinoSprite.getWidth() * 0.5f, dinoSprite.getHeight() * 0.5f);
+        dinoX = 100;
+        dinoY = 100;
+
+        objects = new ArrayList<>();
+
+        // Configuração dos objetos interativos
+        int numberOfObjects = 5; // Número de objetos
+        float screenWidth = Gdx.graphics.getWidth();
+        float screenHeight = Gdx.graphics.getHeight();
+        Texture objectTexture = new Texture("objeto.png");
+        float objectWidth = objectTexture.getWidth() * (1f / 3f); // Reduzido em 1/3
+        float spacing = 150; // Espaçamento fixo entre os objetos
+
+        // Largura total ocupada pelos objetos (inclui espaçamento entre eles)
+        float totalWidth = numberOfObjects * objectWidth + (numberOfObjects - 1) * spacing;
+
+        // Posição inicial (x) centralizada
+        float startX = (screenWidth - totalWidth) / 2;
+        float y = (screenHeight / 2) - (objectWidth / 2); // Centraliza no eixo Y
+
+        // Criar e posicionar os objetos
+        for (int i = 0; i < numberOfObjects; i++) {
+            float x = startX + i * (objectWidth + spacing); // Posiciona cada objeto
+            objects.add(new InteractiveObject(objectTexture, x, y));
+        }
     }
+
+
 
     @Override
     public void render() {
         ScreenUtils.clear(1, 0, 0, 1);
+        float delta = Gdx.graphics.getDeltaTime();
+
+        handleInput(delta);
+        checkInteractions();
+
         batch.begin();
-        batch.draw(image, 0, 0);
-        batch.draw(dino, 0, 0);
+        batch.draw(background, 0, 0);
+        for (InteractiveObject obj : objects) {
+            obj.draw(batch);
+        }
+        dinoSprite.setPosition(dinoX, dinoY);
+        dinoSprite.draw(batch);
         batch.end();
+    }
+
+    private void handleInput(float delta) {
+        if (Gdx.input.isKeyPressed(Input.Keys.W) || Gdx.input.isKeyPressed(Input.Keys.UP)) {
+            dinoY += speed * delta;
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.S) || Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
+            dinoY -= speed * delta;
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.A) || Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+            dinoX -= speed * delta;
+            if (facingRight) {
+                dinoSprite.flip(true, false);
+                facingRight = false;
+            }
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.D) || Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+            dinoX += speed * delta;
+            if (!facingRight) {
+                dinoSprite.flip(true, false);
+                facingRight = true;
+            }
+        }
+
+        dinoX = Math.max(0, Math.min(dinoX, Gdx.graphics.getWidth() - dinoSprite.getWidth()));
+        dinoY = Math.max(0, Math.min(dinoY, Gdx.graphics.getHeight() - dinoSprite.getHeight()));
+    }
+
+    private void checkInteractions() {
+        Rectangle dinoBounds = dinoSprite.getBoundingRectangle();
+
+        for (InteractiveObject obj : objects) {
+            if (dinoBounds.overlaps(obj.getBounds())) {
+                System.out.println("Colidiu com objeto! Abrindo Quiz...");
+                setScreen(new QuizScreen()); // Troca para a tela de quiz
+            }
+        }
     }
 
     @Override
     public void dispose() {
         batch.dispose();
-        image.dispose();
+        background.dispose();
+        dinoSprite.getTexture().dispose();
+        for (InteractiveObject obj : objects) {
+            obj.dispose();
+        }
     }
 }

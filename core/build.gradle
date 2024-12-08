@@ -1,6 +1,8 @@
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 eclipse.project.name = appName + '-core'
 
+
+
 dependencies {
   api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
   api "com.badlogicgames.gdx:gdx:$gdxVersion"
@@ -16,6 +18,7 @@ dependencies {
   api "de.tomgrill.gdxdialogs:gdx-dialogs-core:$dialogsVersion"
   api "net.onedaybeard.artemis:artemis-odb:$artemisOdbVersion"
   api "org.apache.commons:commons-collections4:$commonsCollectionsVersion"
+
 
   if(enableGraalNative == 'true') {
     implementation "io.github.berstanio:gdx-svmhelper-annotations:$graalHelperVersion"

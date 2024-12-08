@@ -1,0 +1,13 @@
+apply plugin: 'gwt'
+
+dependencies {
+  implementation project(":core")
+  implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
+  implementation "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion"
+  implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:sources"
+}
+
+gwt {
+  gwtVersion = '2.8.2'
+  modules 'com.terminalroot.game.GdxDefinition'
+}
