@@ -1,0 +1,3 @@
+- ./gradlew html:dist p buildar
+- cd html/build/dist entrar no diretorio
+- python -m http.server - http://0.0.0.0:8000/ - iniciar server local
