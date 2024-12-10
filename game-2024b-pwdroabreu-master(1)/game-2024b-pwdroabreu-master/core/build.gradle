@@ -1,0 +1,40 @@
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+eclipse.project.name = appName + '-core'
+
+dependencies {
+  api "com.badlogicgames.ashley:ashley:$ashleyVersion"
+  api "com.badlogicgames.box2dlights:box2dlights:$box2dlightsVersion"
+  api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
+  api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+  api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+  api "com.badlogicgames.gdx:gdx:$gdxVersion"
+  api "com.crashinvaders.vfx:gdx-vfx-core:$gdxVfxCoreVersion"
+  api "com.crashinvaders.vfx:gdx-vfx-effects:$gdxVfxEffectsVersion"
+  api "com.github.MrStahlfelge.gdx-websockets:core:$websocketVersion"
+  implementation 'com.github.lyze237:gdx-FlexBox:main-SNAPSHOT'
+  api "com.github.tommyettinger:anim8-gdx:$anim8Version"
+  api "com.github.tommyettinger:digital:$digitalVersion"
+  api "com.github.tommyettinger:juniper:$juniperVersion"
+  api "com.kotcrab.vis:vis-ui:$visUiVersion"
+  api "de.tomgrill.gdxdialogs:gdx-dialogs-core:$dialogsVersion"
+  api "net.onedaybeard.artemis:artemis-odb:$artemisOdbVersion"
+  api "org.apache.commons:commons-collections4:$commonsCollectionsVersion"
+  implementation 'com.google.gwt:gwt-user:2.10.0'
+  implementation 'com.google.gwt:gwt-dev:2.10.0'
+
+  if(enableGraalNative == 'true') {
+    implementation "io.github.berstanio:gdx-svmhelper-annotations:$graalHelperVersion"
+  }
+}
+
+configurations.all {
+  resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+    if (details.requested.group == 'com.github.tommyettinger' && details.requested.name == 'colorful') {
+      details.useVersion('versão-compatível')
+    }
+    if (details.requested.group == 'io.github.orioncraftmc' && details.requested.name == 'meditate') {
+      details.useVersion('versão-compatível')
+    }
+  }
+}
+
