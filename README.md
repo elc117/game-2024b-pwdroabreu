@@ -30,6 +30,7 @@ O desenvolvimento do jogo começou com a ideia de criar um quiz associado com as
    A transição entre o estado de exploração e o modo de quiz exigiu uma boa organização do código.
 
 
+![Diagrama de Classes](Main.png)
 
 
 
