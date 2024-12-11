@@ -31,8 +31,74 @@ O desenvolvimento do jogo começou com a ideia de criar um quiz associado com as
    
 
 
-![Diagrama de Classes](Main.png)
+![Diagrama de Classes](diagrama.png)
 
+# Estrutura do Projeto
+
+## **Main**
+- Gerencia todas as telas (`MenuScreen`, `GameScreen`, `VictoryScreen`, `GameOverScreen`).
+- Possui métodos de controle como:
+  - `startGame()`
+  - `decrementLives()`
+  - `incrementCorrectAnswers()`
+
+---
+
+## **GameScreen**
+- **Usa:**
+  - **`Dino`**: Responsável pela movimentação e colisão.
+  - **`InteractiveObjectManager`**: Gerencia os objetos interativos.
+  - **`QuizManager`**: Gerencia os quizzes.
+  - **`GameRenderer`**: Renderiza o estado atual do jogo.
+- Interage com `Main` para:
+  - Ajustar vidas.
+  - Controlar o progresso do jogo.
+
+---
+
+## **Dino**
+- Representa o personagem jogável.
+- Responsabilidades:
+  - Movimentação.
+  - Verificação de colisões (usado por `GameScreen` e `InteractiveObjectManager`).
+
+---
+
+## **InteractiveObjectManager**
+- Cria e gerencia **`InteractiveObject`**.
+- Detecta colisões com `Dino`.
+
+---
+
+## **InteractiveObject**
+- Contém:
+  - Perguntas.
+  - Opções de resposta.
+- **Usado por:**
+  - `InteractiveObjectManager` para criar objetos interativos.
+  - `QuizManager` para exibir quizzes.
+
+---
+
+## **QuizManager**
+- Gerencia o estado do quiz:
+  - Perguntas.
+  - Respostas.
+- Interage diretamente com **`InteractiveObject`**.
+
+---
+
+## **GameRenderer**
+- Renderiza o estado visual do jogo, incluindo:
+  - **`Dino`**
+  - **`InteractiveObjectManager`**
+
+---
+
+## **Outras Telas**
+### **MenuScreen**, **VictoryScreen**, **GameOverScreen**
+- Herdam de `Screen`.
+- Usadas pelo **`Main`**.
 
 
 
@@ -45,6 +111,7 @@ O desenvolvimento do jogo começou com a ideia de criar um quiz associado com as
    - ChatGpt (para consulta de alguns bugs relacionados a LibGDX)
    - Terminal Root: https://www.youtube.com/watch?v=2bmvlwvnirk
    - Brent Aureli Codes: https://www.youtube.com/playlist?list=PLZm85UZQLd2SXQzsF-a0-pPF6IWDDdrXt
+   - Sprites gerados por I.A. - https://chatgpt.com/g/g-pmuQfob8d-image-generator
 
    ### Inspirações e informações das perguntas e respostas do quiz:
    - GeoParque Quarta Colônia: https://www.geoparquequartacolonia.com.br/home
