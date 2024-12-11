@@ -42,7 +42,7 @@ O desenvolvimento do jogo começou com a ideia de criar um quiz associado com as
    - Material da disciplina: https://github.com/andreaInfUFSM/elc117-2024b)
    - Documentação da LibGDX: https://libgdx.com/dev/
    - Welsiton Ferreira - Desenvolvedor Indie: https://www.youtube.com/playlist?list=PLwlysxDPhB-9uWQBnjGenhONQXS6gzvOp
-   - ChatGpt (para consulta de alguns erros e bugs, maioria relacionado a função "build:dist")
+   - ChatGpt (para consulta de alguns bugs relacionados a LibGDX)
    - Terminal Root: https://www.youtube.com/watch?v=2bmvlwvnirk
    - Brent Aureli Codes: https://www.youtube.com/playlist?list=PLZm85UZQLd2SXQzsF-a0-pPF6IWDDdrXt
 
