@@ -41,3 +41,4 @@ O desenvolvimento do jogo começou com a ideia de criar um quiz associado com as
    - Welsiton Ferreira - Desenvolvedor Indie: https://www.youtube.com/playlist?list=PLwlysxDPhB-9uWQBnjGenhONQXS6gzvOp
    - ChatGpt (para consulta de alguns erros e bugs)
    - Terminal Root: https://www.youtube.com/watch?v=2bmvlwvnirk
+   - Brent Aureli Codes: https://www.youtube.com/playlist?list=PLZm85UZQLd2SXQzsF-a0-pPF6IWDDdrXt
