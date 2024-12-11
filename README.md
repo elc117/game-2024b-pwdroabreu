@@ -28,3 +28,16 @@ O desenvolvimento do jogo começou com a ideia de criar um quiz associado com as
    Foi necessário criar um sistema de colisão eficiente usando `Rectangle` para detectar interações.
 3. **Gerenciamento de Estados do Jogo:**
    A transição entre o estado de exploração e o modo de quiz exigiu uma boa organização do código.
+
+
+
+
+
+
+
+   ## Referencias:
+   - Material da disciplina: //adicionar link
+   - Documentação da LibGDX: // adc link
+   - Welsiton Ferreira - Desenvolvedor Indie: https://www.youtube.com/playlist?list=PLwlysxDPhB-9uWQBnjGenhONQXS6gzvOp
+   - ChatGpt (para consulta de alguns erros e bugs)
+   - Terminal Root: https://www.youtube.com/watch?v=2bmvlwvnirk
