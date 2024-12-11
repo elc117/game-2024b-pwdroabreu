@@ -13,7 +13,7 @@
 
 ## Comentários sobre o Processo de Desenvolvimento
 ### Planejamento e Ideia
-O desenvolvimento do jogo começou com a ideia de criar um quiz associado com as demandas do trabalho. A escolha do tema paleontologia foi inspirada no Geoparque Quarta Colônia.
+O desenvolvimento do jogo começou com a ideia de criar um quiz associado com as demandas do trabalho. A escolha do dinossauro como personagem foi inspirada no Geoparque Quarta Colônia.
 
 ### Tecnologias Utilizadas
 - **Linguagem:** Java
