@@ -8,25 +8,39 @@ public class InteractiveObject {
     private final Texture texture;
     private final float x;
     private final float y;
-    private final float width;
-    private final float height;
+    private final String question;
+    private final String[] options;
+    private final int correctAnswerIndex;
+    private final float scale;
 
-    public InteractiveObject(Texture texture, float x, float y) {
+    public InteractiveObject(Texture texture, float x, float y, String question, String[] options, int correctAnswerIndex, float scale) {
         this.texture = texture;
         this.x = x;
         this.y = y;
-
-
-        this.width = texture.getWidth() * (1f / 3f);
-        this.height = texture.getHeight() * (1f / 3f);
+        this.question = question;
+        this.options = options;
+        this.correctAnswerIndex = correctAnswerIndex;
+        this.scale = scale;
     }
 
     public void draw(SpriteBatch batch) {
-        batch.draw(texture, x, y, width, height); // usa as dimensões reduzidas
+        batch.draw(texture, x, y, texture.getWidth() * scale, texture.getHeight() * scale); // Aplicar escala aqui
     }
 
     public Rectangle getBounds() {
-        return new Rectangle(x, y, width, height);
+        return new Rectangle(x, y, texture.getWidth() * scale, texture.getHeight() * scale); // Ajustar bounds com escala
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public String[] getOptions() {
+        return options;
+    }
+
+    public boolean isCorrectAnswer(int index) {
+        return index == correctAnswerIndex;
     }
 
     public void dispose() {
