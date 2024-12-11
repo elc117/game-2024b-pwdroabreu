@@ -37,8 +37,8 @@ O desenvolvimento do jogo começou com a ideia de criar um quiz associado com as
 
 
 
-   ### Referencias:
-   ## Conteúdos usados para o desenvolvimento do jogo:
+   ## Referencias:
+   ### Conteúdos usados para o desenvolvimento do jogo:
    - Material da disciplina: https://github.com/andreaInfUFSM/elc117-2024b)
    - Documentação da LibGDX: https://libgdx.com/dev/
    - Welsiton Ferreira - Desenvolvedor Indie: https://www.youtube.com/playlist?list=PLwlysxDPhB-9uWQBnjGenhONQXS6gzvOp
@@ -46,7 +46,7 @@ O desenvolvimento do jogo começou com a ideia de criar um quiz associado com as
    - Terminal Root: https://www.youtube.com/watch?v=2bmvlwvnirk
    - Brent Aureli Codes: https://www.youtube.com/playlist?list=PLZm85UZQLd2SXQzsF-a0-pPF6IWDDdrXt
 
-   ## Inspirações e informações das perguntas e respostas do quiz:
+   ### Inspirações e informações das perguntas e respostas do quiz:
    - GeoParque Quarta Colônia: https://www.geoparquequartacolonia.com.br/home
    - GeoParque Caçapava: https://geoparquecacapava.com.br/
    - Distrito Criativo Centro-Gare: http://www.distritocentrogare.com.br/index.php/pt/
