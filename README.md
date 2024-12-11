@@ -1,7 +1,7 @@
 # Quizzossauro 🦖
 
 ## Sobre o Jogo
-**Quizzossauro** é um jogo interativo no qual o jogador deve responder perguntas relacionadas a paleontologia, geografia e cultura local. O objetivo é explorar o cenário enquanto aprende e testa seus conhecimentos, avançando por meio de interações com objetos no ambiente.
+**Quizzossauro** é um jogo interativo no qual o jogador deve ajudar o dinossauro Eduardo Moacir a responder perguntas relacionadas a paleontologia, geografia e cultura local. O objetivo é explorar o cenário enquanto aprende e testa seus conhecimentos, avançando por meio de interações com objetos no ambiente.
 
 ---
 
@@ -31,7 +31,7 @@ O desenvolvimento do jogo começou com a ideia de criar um quiz associado com as
    
 
 
-![Diagrama de Classes](diagrama.png)
+![Diagrama de Classes](diagrama1.png)
 
 # Estrutura do Projeto
 
